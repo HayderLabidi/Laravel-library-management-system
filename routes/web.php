@@ -29,39 +29,13 @@ Route::get('/', function () {
 })->middleware('guest');
 Route::post('/', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-// Route::post('/Change-password', [LoginController::class, 'changePassword'])->name('change_password');
+Route::post('/Change-password', [LoginController::class, 'changePassword'])->name('change_password');
 
 
 Route::middleware('auth')->group(function () {
     Route::get('change-password',[dashboardController::class,'change_password_view'])->name('change_password_view');
     Route::post('change-password',[dashboardController::class,'change_password'])->name('change_password');
     Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
-
-    // author CRUD
-    Route::get('/authors', [AutherController::class, 'index'])->name('authors');
-    Route::get('/authors/create', [AutherController::class, 'create'])->name('authors.create');
-    Route::get('/authors/edit/{auther}', [AutherController::class, 'edit'])->name('authors.edit');
-    Route::post('/authors/update/{id}', [AutherController::class, 'update'])->name('authors.update');
-    Route::post('/authors/delete/{id}', [AutherController::class, 'destroy'])->name('authors.destroy');
-    Route::post('/authors/create', [AutherController::class, 'store'])->name('authors.store');
-
-    // publisher crud
-    Route::get('/publishers', [PublisherController::class, 'index'])->name('publishers');
-    Route::get('/publisher/create', [PublisherController::class, 'create'])->name('publisher.create');
-    Route::get('/publisher/edit/{publisher}', [PublisherController::class, 'edit'])->name('publisher.edit');
-    Route::post('/publisher/update/{id}', [PublisherController::class, 'update'])->name('publisher.update');
-    Route::post('/publisher/delete/{id}', [PublisherController::class, 'destroy'])->name('publisher.destroy');
-    Route::post('/publisher/create', [PublisherController::class, 'store'])->name('publisher.store');
-
-    // Category CRUD
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-    Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
-    Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-    Route::post('/category/create', [CategoryController::class, 'store'])->name('category.store');
-
-
 
 
     // books CRUD

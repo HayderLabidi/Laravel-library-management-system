@@ -66,6 +66,15 @@
                                 </div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label>Book Cover</label>
+                            <input type="file" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image" required>
+                            @error('cover_image')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                         <input type="submit" name="save" class="btn btn-danger" value="save" required>
                     </form>
                 </div>
