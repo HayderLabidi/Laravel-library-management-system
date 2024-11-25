@@ -33,8 +33,7 @@
                                     <td>{{ $student->phone }}</td>
                                     <td>{{ $student->email }}</td>
                                     <td class="view">
-                                        <button data-sid='{{ $student->id }}>'
-                                            class="btn btn-primary view-btn">View</button>
+                                        <button data-sid="{{ $student->id }}" class="btn btn-primary view-btn">View</button>
                                     </td>
                                     <td class="edit">
                                         <a href="{{ route('student.edit', $student) }}>" class="btn btn-success">Edit</a>
@@ -69,19 +68,26 @@
     </div>
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script type="text/javascript">
-        //Show shudent detail
-        $(".view-btn").on("click", function() {
+        
+         // Show student detail
+         $(document).on("click", ".view-btn", function() {
             var student_id = $(this).data("sid");
             $.ajax({
-                url: "http://127.0.0.1:8000/student/show/"+student_id,
+                url: "http://127.0.0.1:8000/student/show/" + student_id,
                 type: "get",
                 success: function(student) {
-                    console.log(student);
-                    form ="<tr><td>Student Name :</td><td><b>"+student['name']+"</b></td></tr><tr><td>Address :</td><td><b>"+student['address']+"</b></td></tr><tr><td>Gender :</td><td><b>"+ student['gender']+ "</b></td></tr><tr><td>Class :</td><td><b>"+ student['class']+ "</b></td></tr><tr><td>Age :</td><td><b>"+ student['age']+ "</b></td></tr><tr><td>Phone :</td><td><b>"+ student['phone']+ "</b></td></tr><tr><td>Email :</td><td><b>"+ student['email']+ "</b></td></tr>";
-          console.log(form);
-
+                    var form = "<tr><td>Student Name :</td><td><b>" + student['name'] + "</b></td></tr>" +
+                               "<tr><td>Address :</td><td><b>" + student['address'] + "</b></td></tr>" +
+                               "<tr><td>Gender :</td><td><b>" + student['gender'] + "</b></td></tr>" +
+                               "<tr><td>Class :</td><td><b>" + student['class'] + "</b></td></tr>" +
+                               "<tr><td>Age :</td><td><b>" + student['age'] + "</b></td></tr>" +
+                               "<tr><td>Phone :</td><td><b>" + student['phone'] + "</b></td></tr>" +
+                               "<tr><td>Email :</td><td><b>" + student['email'] + "</b></td></tr>";
                     $("#modal-form table").html(form);
                     $("#modal").show();
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching student details: ", error);
                 }
             });
         });

@@ -51,7 +51,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $student = student::find($id)->first();
+        $student = student::find($id);
         return $student;
     }
 
