@@ -35,18 +35,17 @@
                         <div class="form-group">
                             <label>Gender</label>
                             <select name="gender" class="form-control">
-                                @if ($student->gneder == 'male')
+                                <option value="">Select Category</option>
+                                @foreach ($gender as $gender)
+                                @if ($student->gneder == 'female')
                                     <option value="male" selected>Male</option>
                                 @else
                                     <option value="female" selected>Female</option>
                                 @endif
+                                @endforeach
                             </select>
-                            @error('gender')
-                                <div class="alert alert-danger" role="alert">
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </div>
+
                         <div class="form-group">
                             <label>Class</label>
                             <input type="text" class="form-control" placeholder="Class" name="class"

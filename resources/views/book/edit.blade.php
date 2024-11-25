@@ -24,8 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label>Category</label>
-                            <select class="form-control @error('category_id') isinvalid @enderror " name="category_id"
-                                >
+                            <select class="form-control @error('category_id') isinvalid @enderror " name="category_id">
                                 <option value="">Select Category</option>
                                 @foreach ($categories as $category)
                                     @if ($category->id == $book->category_id)
