@@ -46,9 +46,6 @@
                 <div class="col-md-12">
                     <ul class="menu">
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li><a href="{{ route('authors') }}">Authors</a></li>
-                        <li><a href="{{ route('publishers') }}">Publishers</a></li>
-                        <li><a href="{{ route('categories') }}">Categories</a></li>
                         <li><a href="{{ route('books') }}">Books</a></li>
                         <li><a href="{{ route('students') }}">Students</a></li>
                         <li><a href="{{ route('book_issued') }}">Book Issue</a></li>
@@ -67,11 +64,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <span>© Copyright By Hayder Labidi</a></span>
+                    <span>© Copyright {{ now()->format("Y") }} <a href="https://www.yahoobaba.net">YahooBaba 😎</a></span>
                 </div>
             </div>
         </div>
     </div>
+    <!-- /FOOTER -->
+    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

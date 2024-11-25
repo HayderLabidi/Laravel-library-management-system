@@ -8,22 +8,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="width: 14rem; margin: 0 auto;">
-                        <div class="card-body text-center">
-                            <p class="card-text">{{ $authors }}</p>
-                            <h5 class="card-title mb-0">Authors Listed</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card" style="width: 14rem; margin: 0 auto;">
-                        <div class="card-body text-center">
-                            <p class="card-text">{{ $publishers }}</p>
-                            <h5 class="card-title mb-0">Publishers Listed</h5>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-3">
                     <div class="card" style="width: 14rem; margin: 0 auto;">
                         <div class="card-body text-center">
