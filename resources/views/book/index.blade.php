@@ -21,7 +21,6 @@
                             <th>Category</th>
                             <th>Author</th>
                             <th>Publisher</th>
-                            <th>Status</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </thead>
@@ -33,13 +32,6 @@
                                     <td>{{ $book->category->name }}</td>
                                     <td>{{ $book->auther->name }}</td>
                                     <td>{{ $book->publisher->name }}</td>
-                                    <td>
-                                        @if ($book->status == 'Y')
-                                            <span class='badge badge-success'>Available</span>
-                                        @else
-                                            <span class='badge badge-danger'>Issued</span>
-                                        @endif
-                                    </td>
                                     <td class="edit">
                                         <a href="{{ route('book.edit', $book) }}" class="btn btn-success">Edit</a>
                                     </td>
